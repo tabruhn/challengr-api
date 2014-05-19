@@ -1,0 +1,22 @@
+2014-05-18T10:40:34.985968000 0.003831s info: Creating directory /Users/aries/Workspace/paperhat/phapi/rethinkdb_data
+2014-05-18T10:40:34.988601000 0.006464s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/aries/Workspace/paperhat/phapi/rethinkdb_data' did not already exist.)
+2014-05-18T10:40:34.988762000 0.006625s info: Running rethinkdb 1.12.4 (CLANG 5.1 (clang-503.0.40))...
+2014-05-18T10:40:34.995113000 0.012977s info: Running on Darwin 13.1.0 x86_64
+2014-05-18T10:40:34.995158000 0.013021s info: Using cache size of 506 MB
+2014-05-18T10:40:34.995188000 0.013051s info: Loading data from directory /Users/aries/Workspace/paperhat/phapi/rethinkdb_data
+2014-05-18T10:40:35.104182000 0.122045s info: Listening for intracluster connections on port 29015
+2014-05-18T10:40:35.107782000 0.125645s info: Listening for client driver connections on port 28015
+2014-05-18T10:40:35.107902000 0.125765s info: Listening for administrative HTTP connections on port 8080
+2014-05-18T10:40:35.107921000 0.125784s info: Listening on addresses: 127.0.0.1, ::1
+2014-05-18T10:40:35.107922000 0.125785s info: To fully expose RethinkDB on the network, bind to all addresses
+2014-05-18T10:40:35.107940000 0.125803s info: by running rethinkdb with the `--bind all` command line option.
+2014-05-18T10:40:35.108007000 0.125870s info: Server ready
+2014-05-18T11:09:48.413320000 1753.672741s info: Applying data {"databases":{"new":{"name":"davinci"}}}
+2014-05-18T16:41:26.166970000 15581.195506s info: Applying data {"databases":{"67e2e6c1-b843-4bd8-aab8-b0d4b27f7bfb":null},"rdb_namespaces":{"b238f441-f54c-4f9e-9ee8-0ff38cdfe043":null,"b829715e-5c15-4695-b456-572994c59430":null,"d1dea367-f021-49d1-9eee-74de97c69da3":null,"ee7cd4de-58bf-4679-b6af-ccd25dc7dc41":null}}
+2014-05-18T16:41:32.716637000 15587.745933s info: Applying data {"databases":{"new":{"name":"davinic"}}}
+2014-05-18T16:41:41.949921000 15596.979710s info: Applying data {"databases":{"76b8849e-1131-43b1-9151-5bba767fdaf3":null}}
+2014-05-18T16:41:47.034231000 15602.065272s info: Applying data {"databases":{"new":{"name":"davinci"}}}
+2014-05-19T09:55:39.194114000 75206.305696s info: Applying data {"databases":{"4f4f9118-c057-45c8-ba9d-463b9e14fb25":null},"rdb_namespaces":{"64fd9fce-57d4-4d72-95e1-9d31c492db2d":null,"84ef62dd-3c4d-4b39-bc06-11cb48b6e092":null,"9abe63db-18d6-4267-92c0-15bc8016fece":null,"bd8dbf4f-48af-4d8b-8cc0-2c3c866237ff":null,"225ab569-cc3e-4a82-8d2b-f7469bd1546f":null,"2ed137db-ad6d-474c-81f8-6a338d5b5ca8":null,"373bb0e3-cd0e-46b4-a225-dd328af7b9ab":null,"9b760cc9-de26-4498-9912-d982d57c8f1d":null,"da1d5ca1-e02c-4cc0-b3a3-774ec5d7f59a":null,"fe797510-05c7-4d27-b92f-d607edb6a80f":null,"cea13416-c7db-4246-aa0c-3f783a1fffc2":null,"d748ffc6-bb2c-457c-a98f-8466d585e296":null}}
+2014-05-19T09:55:45.100631000 75212.213466s info: Applying data {"databases":{"new":{"name":"davinci"}}}
+2014-05-19T11:26:03.878397000 77695.373618s info: Applying data {"databases":{"fbc058bb-3034-4df4-88ea-8feddeed315a":null},"rdb_namespaces":{"080ec2fb-a867-4c59-be35-799ed425db54":null,"0d0bdb68-c450-43ab-b474-b13acb3ca82c":null,"104f833a-9280-4da9-9f64-3eb6b5d81bf8":null,"7a33579a-b8d2-4c30-907e-b25177ad8a02":null,"97282e69-f25b-454b-9662-c19e2b12c876":null,"b8a17d4a-ee32-418f-b709-b4d1d19160e6":null,"bbb1c226-25b8-4420-b1e5-76112d1f9dc6":null,"dde173f0-f2fc-45e8-b087-15a75cf67a65":null,"e1cb6580-adad-4b07-b051-619483220242":null,"e56a2eb0-6317-4c90-8932-0c15ddf4e031":null,"1f076389-2847-48e4-af41-22cbe5bad0f2":null,"571c7ca4-f65a-48b6-8b07-2ac43b54f41b":null,"644a093e-907a-4435-a7ff-ee160240c8b4":null}}
+2014-05-19T11:26:10.937191000 77702.433288s info: Applying data {"databases":{"new":{"name":"davinci"}}}
