@@ -25,7 +25,10 @@
 		"express-session": "1.0.x",
 		"cookie-parser": "1.0.x",
 		"body-parser": "1.0.x",
-		"wrench": "1.5.x"
+		"wrench": "1.5.x",
+    "morgan": "1.x",
+    "node-uuid":"1.4",
+    "underscore":"1.6"
 	},
 	"devDependencies": {
 		"coffee-script": "*",
