@@ -11,7 +11,7 @@ app = express()
 
 logger format: 'dev', immediate: true
 
-app.port = process.env.PORT or process.env.VMC_APP_PORT or 3000
+app.port = process.env.PORT or process.env.VMC_APP_PORT or 3001
 env = process.env.NODE_ENV or "development"
 
 config = require "./config"

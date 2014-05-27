@@ -79,10 +79,12 @@ exports.setDatabase = (app, models) ->
     throw err if (err)
 
     for model, options of models
-      console.log "#{options.table}"
+      console.log "running tableCreate for #{model}"
 
       r.db('challengr').tableCreate(options.table).run conn, (err, res) ->
         if err
-          unless err.name == "RqlRuntimeError"
+          if err.name == "RqlRuntimeError"
+            console.log "Table <#{options.table}> already exists. Skipping creation."
+          else
             console.log err, res
             throw err

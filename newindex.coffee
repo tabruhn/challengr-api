@@ -27,11 +27,6 @@ exports.setConfig = (app) ->
   console.log "set configuration"
 
   exports.MODELS =
-    answer:
-      item: 'answer'
-      table: 'answers'
-      whitelist: ['id', 'body', 'questionId']
-      sort: ['questionId','id']
     attempt:
       item: 'attempt'
       table: 'attempts'
@@ -41,36 +36,52 @@ exports.setConfig = (app) ->
       item: 'category'
       table: 'categories'
       whitelist: [ 'id', 'title', 'challenges' ]
-      sort: [ 'title' ]
+      sort: [ 'name' ]
     challenge:
       item: 'challenge'
       table: 'challenges'
-      whitelist: [ 'id', 'categoryId', 'taskIds', 'possibleScore','timeLimit','attemptIds' ]
-      sort: [ 'categoryId', 'id' ]
+      whitelist: [ 'id', '', 'definition', 'lessonIds' ]
+      sort: [ 'word' ]
     inquiry:
       item: 'inquiry'
       table: 'inquiries'
-      whitelist: [ 'id', 'question', 'tagIds']
-      sort: [ 'id']
+      whitelist: [ 'id', 'filename', 'type', 'lessonIds' ]
+      sort: [ 'type', 'filename' ]
     question:
       item: 'question'
       table: 'questions'
       whitelist: [
         'id'
-        'answerIds'
-        'roomId'
+        'title'
+        'introduction'
+        'justification'
+        'content'
+        'timeToComplete'
+        'authorId'
+        'categoryId'
+        'objectiveId'
+        'annotationIds'
+        'assessmentIds'
+        'attachmentIds'
+        'figureIds'
+        'glossaryIds'
+        'prerequisiteIds'
+        'referenceIds'
+        'resourceIds'
+        'syllabusIds'
+        'tagIds'
       ]
-      sort: [ 'id' ]
+      sort: [ 'title' ]
     task:
       item: 'task'
       table: 'tasks'
-      whitelist: [ 'id',  'lessonIds' ]
-      sort: [ 'id' ]
+      whitelist: [ 'id', 'idea', 'lessonIds' ]
+      sort: [ 'idea' ]
     user:
       item: 'user'
       table: 'users'
-      whitelist: [ 'id', 'name', 'email', 'salt','hash','resetCode','resetExpiresAt','roomIds','memberships','messageIds', 'lessonIds' ]
-      sort: [ 'id', 'name']
+      whitelist: [ 'id', 'name', 'email', 'lessonIds' ]
+      sort: [ 'name' ]
 
 exports.setDatabase = (app, models) ->
   console.log "set database"
@@ -79,10 +90,12 @@ exports.setDatabase = (app, models) ->
     throw err if (err)
 
     for model, options of models
-      console.log "#{options.table}"
+      console.log "running tableCreate for #{model}"
 
       r.db('challengr').tableCreate(options.table).run conn, (err, res) ->
         if err
-          unless err.name == "RqlRuntimeError"
+          if err.name == "RqlRuntimeError"
+            console.log "Table <#{options.table}> already exists. Skipping creation."
+          else
             console.log err, res
             throw err

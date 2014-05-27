@@ -6,17 +6,21 @@ exports.findAll = (req, res, model) ->
     r.connect { host: 'localhost', port: 28015 }, (err, conn) ->
       throw err if err?
 
-      query = r.db('davinci').
+      query = r.db('challengr').
         table( model.table ).
         orderBy( getSortOrder(req.query, model)... ).
         pluck( getFields(req.query, model) ).
         slice( getRange(req)... )
 
       query.run conn, (err, cursor) ->
-        throw err if err?
+        if err?
+          res.send 500
+          return
 
         cursor.toArray (err, result) ->
-          throw err if err?
+          if err?
+            res.send 500
+            return
 
           out = {}
           out[model.table] = _.map result, (item) ->
@@ -35,13 +39,12 @@ exports.findById = (req, res, model) ->
     r.connect { host: 'localhost', port: 28015 }, (err, conn) ->
       throw err if err?
 
-      query = r.db('davinci').
+      query = r.db('challengr').
         table(model.table).
         get(req.params.id).
         pluck getFields(req.query, model)
 
       query.run conn, (err, result) ->
-        throw err if err?
 
         if !result?
           res.send 404
@@ -56,6 +59,7 @@ exports.findById = (req, res, model) ->
   finally
     conn.close() if conn?
 
+# put
 exports.upsert = (req, res, model) ->
   try
     r.connect { host: 'localhost', port: 28015 }, (err, conn) ->
@@ -64,7 +68,7 @@ exports.upsert = (req, res, model) ->
       json = req.body[model.item]
       json = _.pick _.extend(json, id: req.params.id), model.whitelist
 
-      query = r.db('davinci').
+      query = r.db('challengr').
         table(model.table).
         insert json, upsert: true
 
@@ -102,6 +106,7 @@ exports.upsert = (req, res, model) ->
   finally
     conn.close() if conn?
 
+# patch
 exports.update = (req, res, model) ->
   try
     r.connect { host: 'localhost', port: 28015 }, (err, conn) ->
@@ -110,7 +115,7 @@ exports.update = (req, res, model) ->
       json = _.pick req.body[model.item], model.whitelist
 
       try
-        query = r.db('davinci').
+        query = r.db('challengr').
           table(model.table).
           get(req.params.id).
           update(json)
@@ -135,7 +140,7 @@ exports.destroy = (req, res, model) ->
     r.connect { host: 'localhost', port: 28015 }, (err, conn) ->
       throw err if err?
 
-      query = r.db('davinci').
+      query = r.db('challengr').
         table(model.table).
         get(req.params.id).
         delete()
